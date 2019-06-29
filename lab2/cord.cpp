@@ -50,12 +50,13 @@ cord_t cord_sub(cord_t R, size_t lo, size_t hi)
 {
     // TODO: Your implementation here
 	if (lo == hi)return nullptr;
-	if (R->left == nullptr && R->right == nullptr)
+	if (lo == 0 && hi == cord_length(R))return R;
+	if (R->left == nullptr && R->right == nullptr) 
 		return cord_new((R->data).substr(lo, hi - lo));
-	if (hi <= (R->left)->len)
+	if (hi <= (R->left)->len) 
 		return cord_join(cord_sub(R->left, lo, hi), nullptr);
-	if (lo >= (R->left)->len)
-		return cord_join(nullptr, cord_sub(R->right, lo-(R->left)->len, hi-(R->left)->len));
+	if (lo >= (R->left)->len) 
+		return cord_join(nullptr, cord_sub(R->right, lo - (R->left)->len, hi - (R->left)->len));
 	return cord_join(cord_sub(R->left, lo, (R->left)->len), cord_sub(R->right, 0, hi - (R->left)->len));
 }
 
