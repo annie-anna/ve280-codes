@@ -207,7 +207,6 @@ void simulateCreature(creature_t &creature, grid_t &grid, bool verbose) {
 	if (!verbose)cout<< " " << opName[instr.op]<<endl;
 	if (creature.programID == (creature.species)->programSize)
 		creature.programID = 0;
-	return;
 }
 
 bool ifWall(const creature_t &creature, const grid_t& grid) {
@@ -219,8 +218,7 @@ bool ifWall(const creature_t &creature, const grid_t& grid) {
 }
 
 bool ifEmpty(const creature_t &creature, const grid_t &grid) {
-	if (ifWall(creature, grid) || updateCreature(creature,grid) != nullptr) return false;
-	else return true;
+	return !(ifWall(creature, grid) || updateCreature(creature, grid) != nullptr);
 }
 
 bool ifSame(const creature_t &creature, const grid_t &grid) {
@@ -243,7 +241,6 @@ void ifInstr(creature_t & creature, const grid_t &grid,
 	instruction_t instr, bool(*fn)(const creature_t&, const grid_t&)) {
 	if (fn(creature, grid)) creature.programID = instr.address;
 	else creature.programID++;
-	return;
 }
 
 void printInstr(const creature_t &creature, instruction_t instr) {
@@ -251,7 +248,6 @@ void printInstr(const creature_t &creature, instruction_t instr) {
 		cout << "Instruction " << creature.programID + 1 << ": "
 		<< opName[instr.op] << " " << instr.address + 1<<endl;
 	else cout << "Instruction " << creature.programID + 1 << ": " << opName[instr.op] << endl;
-	return;
 }
 
 void printGrid(const grid_t &grid) {
@@ -266,7 +262,6 @@ void printGrid(const grid_t &grid) {
 		}
 		cout << endl;
 	}
-	return;
 }
 
 point_t adjacentPoint(point_t pt, direction_t dir) {
@@ -303,5 +298,4 @@ void initGrid(grid_t &grid) {
 			grid.squares[i][j] = nullptr;
 		}
 	}
-	return;
 }
