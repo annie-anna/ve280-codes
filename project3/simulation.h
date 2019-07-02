@@ -68,7 +68,7 @@ void ifInstr(creature_t & creature, const grid_t &grid,
 // EFFECTS: If instruction can be exercised, change programID to assigned address;
 // otherwise, increment programID.
 
-void printInstr(const creature_t &creature, instruction_t instr);
+void printInstr(const creature_t &creature, const instruction_t &instr);
 // REQUIRES: creature is inside the grid.
 // EFFECTS: Print instructions.
 

@@ -243,7 +243,7 @@ void ifInstr(creature_t & creature, const grid_t &grid,
 	else creature.programID++;
 }
 
-void printInstr(const creature_t &creature, instruction_t instr) {
+void printInstr(const creature_t &creature, const instruction_t &instr) {
 	if (instr.op >= 4 && instr.op <= 8)
 		cout << "Instruction " << creature.programID + 1 << ": "
 		<< opName[instr.op] << " " << instr.address + 1<<endl;
