@@ -1,6 +1,6 @@
 #include"square.h"
 #include"exceptions.h"
-#include<cstring>
+#include<string>
 #include<iostream>
 
 Square::Square(Vaxis v, Haxis h): v(v),h(h), p(nullptr) {

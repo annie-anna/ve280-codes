@@ -2,7 +2,6 @@
 #include<iostream>
 #include<cstdlib>
 #include<cstring>
-#include<sstream>
 #include<ctime>
 using namespace std;
 
@@ -14,10 +13,8 @@ void printState(const Board& board, const Pool& pool) {
 int main(int argc, char* argv[]) {
 	int i = 0, flag = 1; 
 	unsigned int seed; 
-	istringstream iStream;
 	if (argc == 4) {
-		iStream.str(argv[3]);
-		iStream >> seed;
+		seed = (unsigned int)atoi(argv[3]);
 	}
 	else seed = (unsigned int)time(NULL);
 	Board board;

@@ -1,7 +1,7 @@
 #include"player.h"
 #include<iostream>
 #include<cstdlib>
-#include<cstring>
+#include<string>
 #include<ctime>
 #include"exceptions.h"
 
