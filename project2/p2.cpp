@@ -3,67 +3,6 @@
 #include "p2.h"
 using namespace std;
 
-int size(list_t list);
-// EFFECTS: Returns the number of elements in "list".
-// Returns zero if "list" is empty.
-
-bool memberOf(list_t list, int val);
-// EFFECTS: Returns true if the value "val" appears in "list".
-// Returns false otherwise.
-
-int dot(list_t v1, list_t v2);
-// REQUIRES: Both "v1" and "v2" are non-empty
-//
-// EFFECTS: Treats both lists as vectors. Returns the dot
-// product of the two vectors. If one list is longer
-// than the other, ignore the longer part of the vector.
-
-bool isIncreasing(list_t v);
-// EFFECTS: Checks if the list of integers is increasing.
-// A list is increasing if and only if no element
-// is smaller than its previous element. By default,
-// an empty list and a list of a single element are
-// increasing.
-
-list_t reverse(list_t list);
-// EFFECTS: Returns the reverse of "list".
-
-list_t append(list_t first, list_t second);
-// EFFECTS: Returns the list (first second).
-
-bool isArithmeticSequence(list_t v);
-// EFFECTS: Checks if the list of integers forms an
-// arithmetic sequence. By default, an empty list and
-// a list of a single element are arithmetic sequences.
-
-list_t filter_odd(list_t list);
-// EFFECTS: Returns a new list containing only the elements of the
-// original "list" which are odd in value,
-// in the order in which they appeared in list.
-
-list_t filter(list_t list, bool(*fn)(int));
-// EFFECTS: Returns a list containing precisely the elements of "list"
-// for which the predicate fn() evaluates to true, in the
-// order in which they appeared in list.
-
-list_t unique(list_t list);
-// EFFECTS: Returns a new list comprising of each unique element
-// in "list". The order is determined by the first
-// occurrence of each unique element in "list".
-
-list_t insert_list(list_t first, list_t second, unsigned int n);
-// REQUIRES: n <= the number of elements in "first".
-//
-// EFFECTS: Returns a list comprising the first n elements of
-// "first", followed by all elements of "second",
-// followed by any remaining elements of "first".
-
-list_t chop(list_t list, unsigned int n);
-// REQUIRES: "list" has at least n elements.
-//
-// EFFECTS: Returns the list equal to "list" without its last n
-// elements.
-
 static bool odd(int num);
 // EFFECTS: Returns true is num is odd, returns false otherwise.
 
@@ -73,55 +12,11 @@ static list_t unique_helper(list_t list);
 // occurrence of each unique element in "list". 
 
 static list_t reserve_list_n(list_t list, int n);
-// EFFECTS£ºReturns a new list consisting of the first n elements in list.
+// EFFECTSÂ£ÂºReturns a new list consisting of the first n elements in list.
 
 static list_t delete_list_n(list_t list, int n);
 
 // EFFECTS: Returns a new list that deletes the first n elements in list.
-
-int tree_sum(tree_t tree);
-// EFFECTS: Returns the sum of all elements in "tree".
-// Returns zero if "tree" is empty.
-
-bool tree_search(tree_t tree, int val);
-// EFFECTS: Returns true if the value "val" appears in "tree".
-// Returns false otherwise.
-
-int depth(tree_t tree);
-// EFFECTS: Returns the depth of "tree", which equals the number of
-// layers of nodes in the tree.
-// Returns zero if "tree" is empty.
-
-int tree_max(tree_t tree);
-// REQUIRES: "tree" is non-empty.
-//
-// EFFECTS: Returns the largest element in "tree".
-
-list_t traversal(tree_t tree);
-// EFFECTS: Returns the elements of "tree" in a list using an
-// in-order traversal. An in-order traversal prints
-// the "left most" element first, then the second-left-most,
-// and so on, until the right-most element is printed.
-
-bool tree_hasMonotonicPath(tree_t tree);
-// EFFECTS: Returns true if and only if "tree" has at least one
-// root-to-leaf path such that all the elements along the
-// path form a monotonically increasing or decreasing
-// sequence.
-
-bool tree_allPathSumGreater(tree_t tree, int sum);
-// REQUIRES: tree is not empty
-//
-// EFFECTS: Returns true if and only if for each root-to-leaf
-// path of "tree", the sum of all elements along the path
-// is greater than "sum".
-
-bool covered_by(tree_t A, tree_t B);
-// EFFECTS: Returns true if tree A is covered by tree B.
-
-bool contained_by(tree_t A, tree_t B);
-// EFFECTS: Returns true if tree A is covered by tree B
-// or a subtree of B.
 
 static int max(int a, int b);
 // EFFECTS: Returns the maximum of a and b.
@@ -134,16 +29,10 @@ static bool increase(int a, int b);
 // EFFECTS: Returns true if a<=b.
 
 static bool decrease(int a, int b);
-// EFFECTS£ºReturns true is a>=b.
+// EFFECTSÂ£ÂºReturns true is a>=b.
 
 static bool contained_by_helper(tree_t A, tree_t B, tree_t(*fn)(tree_t));
 // EFFECTS: Returns true if A is contained by B.
-
-tree_t insert_tree(int elt, tree_t tree);
-// REQUIRES: "tree" is a sorted binary tree.
-//
-// EFFECTS: Returns a new tree with elt inserted at a leaf such that
-// the resulting tree is also a sorted binary tree.
 
 int size(list_t list) {
 	if (list_isEmpty(list)) return 0;
