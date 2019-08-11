@@ -53,7 +53,7 @@ Piece & Pool::getUnusedPiece(const std::string &in) {
 }
 
 std::string Pool::toString() const {
-	int flag = 0, j = 0; Piece p; std::string str = "";
+	int flag = 0, j = 0; Piece p; std::string str;
 	for (int i = 0; i < NP; i++) {
 		if (!pieces[i].isUsed()) {
 			if(!flag){
