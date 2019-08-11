@@ -50,7 +50,7 @@ bool Board::isWinning(const Piece &p, const Square &sq) {
 				Piece cand = (grid[sq.getV()][i]).getPiece();
 				Compare(cand, p, h, c, s, t);
 			}
-			catch (SquareException exp){ continue; }
+			catch (SquareException& exp){ continue; }
 		}
 	}
 	if (h == 4 || c == 4 || s == 4 || t == 4) return true;
@@ -62,7 +62,7 @@ bool Board::isWinning(const Piece &p, const Square &sq) {
 				Piece cand = (grid[i][sq.getH()]).getPiece();
 				Compare(cand, p, h, c, s, t);
 			}
-			catch (SquareException exp) { continue;}
+			catch (SquareException& exp) { continue;}
 		}
 	}
 	if (h == 4 || c == 4 || s == 4 || t == 4) return true;
@@ -75,7 +75,7 @@ bool Board::isWinning(const Piece &p, const Square &sq) {
 					Piece cand = (grid[i][i]).getPiece();
 					Compare(cand, p, h, c, s, t);
 				}
-				catch (SquareException exp) { continue; }
+				catch (SquareException& exp) { continue; }
 			}
 		}
 		if (h == 4 || c == 4 || s == 4 || t == 4) return true;
@@ -89,7 +89,7 @@ bool Board::isWinning(const Piece &p, const Square &sq) {
 					Piece cand = (grid[i][3 - i]).getPiece();
 					Compare(cand, p, h, c, s, t);
 				}
-				catch (SquareException exp) { continue; }
+				catch (SquareException& exp) { continue; }
 			}
 		}
 		if (h == 4 || c == 4 || s == 4 || t == 4) return true;
@@ -110,7 +110,7 @@ std::string Board::toString() const {
 					if (grid[i][j].isEmpty()) str = str + "  ";
 					else str = str + grid[i][j].getPiece().toString().substr(0, 2);
 				}
-				catch (SquareException exp) { continue; }
+				catch (SquareException& exp) { continue; }
 			}
 			if ((k + 2) % 3 == 0) {
 				if (j == 0) str = str + " ";
@@ -119,7 +119,7 @@ std::string Board::toString() const {
 					if (grid[i][j].isEmpty()) str = str + "  ";
 					else str = str + grid[i][j].getPiece().toString().substr(2, 2);
 				}
-				catch (SquareException exp) { continue; }
+				catch (SquareException& exp) { continue; }
 			}
 		}
 		if((k+1)%3==0) i++;
