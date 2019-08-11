@@ -18,7 +18,7 @@ void HumanPlayer::setPlayer(Board* b, Pool* p) {
 }
 
 Piece & HumanPlayer::selectPiece() {
-	std::string str = ""; int flag = 0; Piece piece_cand;
+	std::string str; int flag = 0; Piece piece_cand;
 	do {
 		flag = 0;
 		std::cout << "Enter a piece:" << std::flush;
@@ -38,7 +38,7 @@ Piece & HumanPlayer::selectPiece() {
 			try {
 				piece_cand = pool->getUnusedPiece(str);
 			}
-			catch (UsedPieceException exp){
+			catch (UsedPieceException& exp){
 				std::cout << exp.what() << std::endl;
 				flag = 1;
 			}
@@ -68,7 +68,7 @@ Square & HumanPlayer::selectSquare(const Piece &p) {
 			try {
 				square_cand = board->getEmptySquare(str);
 			}
-			catch(SquareException exp){
+			catch(SquareException& exp){
 				std::cout << exp.what() << std::endl;
 				flag = 1;
 			}
