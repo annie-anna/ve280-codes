@@ -91,6 +91,7 @@ void Dlist<T>::removeAll() {
 
 template<class T>
 void Dlist<T>::copyAll(const Dlist &l) {
+	if (isEmpty()) return;
 	T* op = new T(*(l.last)->op);
 	insertFront(op);
 	node* current = (l.last)->prev;
