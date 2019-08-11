@@ -3,7 +3,7 @@
 #include<cstring>
 #include<iostream>
 
-static void DecToBin(int n,int* bin, int size) {
+static void DecToBin(int n,int* bin, const int size) {
     int i = size-1;
 	while (n != 0) {
 		bin[i] = n % 2;
@@ -12,7 +12,7 @@ static void DecToBin(int n,int* bin, int size) {
 	}
 }
 
-static int BinToDec(int a[],int size) {
+static int BinToDec(const int a[],const int size) {
 	int dec=0;
 	for (int i = 0; i < size-1; i++) {
 		dec = (dec + a[i]) * 2;
